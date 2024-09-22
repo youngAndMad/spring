@@ -1,12 +1,6 @@
 spring:
-  datasource:
-    reader:
-      url: jdbc:postgresql://localhost:5432/spring_reader
-      username: postgres
-      password: postgres
-    writer:
-      url: jdbc:postgresql://localhost:5432/spring_writer
-      username: postgres
-      password: postgres
+  h2:
+    console:
+      enabled: true
   application:
     name: jpa-reader-writer-ds
