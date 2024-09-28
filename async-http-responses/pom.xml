@@ -9,16 +9,17 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>custom-scopes</artifactId>
+    <artifactId>async-http-responses</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>custom-scopes</name>
-    <description>custom-scopes</description>
+    <name>async-http-responses</name>
+    <description>async-http-responses</description>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
+
 
 </project>
