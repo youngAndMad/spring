@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: jooq
+  sql:
+    init:
+      mode: always
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mysql://localhost:3306/jooq
+  jooq:
+    sql-dialect: mysql
+
+logging:
+  level:
+    org.jooq.Constants: off

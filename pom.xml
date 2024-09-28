@@ -26,6 +26,7 @@
   <modules>
     <module>jpa-reader-writer-ds</module>
     <module>custom-scopes</module>
+    <module>jooq</module>
     <module>async-http-responses</module>
   </modules>
 
