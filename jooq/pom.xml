@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>kz.danekerscode</groupId>
         <artifactId>spring</artifactId>
@@ -10,31 +9,20 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>jpa-reader-writer-ds</artifactId>
+    <artifactId>jooq</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>jpa-reader-writer-ds</name>
-    <description>jpa-reader-writer-ds</description>
-
+    <name>jooq</name>
+    <description>jooq</description>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
+            <artifactId>spring-boot-starter-jooq</artifactId>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
-            <!-- <scope>runtime</scope> -->
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

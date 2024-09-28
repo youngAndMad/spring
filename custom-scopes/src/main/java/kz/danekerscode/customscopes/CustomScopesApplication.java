@@ -12,7 +12,6 @@ public class CustomScopesApplication {
         var ctx = new AnnotationConfigApplicationContext();
         ctx.addBeanFactoryPostProcessor(new TimedScopeBeanPostProcessor());
         ctx.register(SomeClassBeansConfig.class);
-
         ctx.refresh();
 
         var firstSomeClass1 = ctx.getBean("someClass1", SomeClass.class);
