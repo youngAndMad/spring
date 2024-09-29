@@ -1,5 +1,6 @@
 package kz.danekerscode.jooq.car;
 
+import kz.danekerscode.jooq.EntityNotFoundException;
 import kz.danekerscode.jooq.tables.Car;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +18,26 @@ public class CarService {
 
     private final DSLContext dsl;
 
-    public Long create(CarRequest carRequest) {
+    public CarEntity findById(Integer id) {
+        CarEntity carEntity = dsl.selectFrom(Car.CAR)
+                .where(Car.CAR.ID.eq(ULong.valueOf(id)))
+                .fetchOneInto(CarEntity.class);
+
+        if (carEntity == null) {
+            throw new EntityNotFoundException(CarEntity.class, id);
+        }
+
+        return carEntity;
+    }
+
+    public List<CarEntity> findAll(int page, int pageSize) {
+        return dsl.selectFrom(Car.CAR)
+                .offset(page * pageSize)
+                .limit(pageSize)
+                .fetchInto(CarEntity.class);
+    }
+
+    public Integer create(CarRequest carRequest) {
         var carRecord = dsl.insertInto(Car.CAR)
                 .set(Car.CAR.BRAND, carRequest.brand())
                 .set(Car.CAR.MADE_YEAR, carRequest.madeYear())
@@ -28,13 +48,16 @@ public class CarService {
         Assert.notNull(carRequest, "Null received from insert query");
 
         return carRecord
-                .getValue(Car.CAR.ID).longValue();
+                .getValue(Car.CAR.ID).intValue();
     }
 
-    public void delete(Integer id) {
-        dsl.deleteFrom(Car.CAR)
+    /**
+     * Возвращает true, если запись была удалена, иначе false
+     */
+    public boolean delete(Integer id) {
+        return dsl.deleteFrom(Car.CAR)
                 .where(Car.CAR.ID.eq(ULong.valueOf(id)))
-                .execute();
+                .execute() > 0;
     }
 
     public List<CarEntity> filter(CarSearchCriteria criteria) {
