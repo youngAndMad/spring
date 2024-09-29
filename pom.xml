@@ -28,6 +28,7 @@
     <module>custom-scopes</module>
     <module>jooq</module>
     <module>async-http-responses</module>
+    <module>spring-boot-http-client-starter</module>
   </modules>
 
   <dependencies>
