@@ -51,22 +51,23 @@ class AuthServerConfig {
         return http.build()
     }
 
+
     @Bean
     fun authorizationServerSettings(): AuthorizationServerSettings =
         AuthorizationServerSettings.builder().build()
 
     @Bean
-    fun jwkSource(): JWKSource<SecurityContext> = JWKSet(generateRSA()).let { jwkSet ->
+    fun jwkSource(): JWKSource<SecurityContext> = JWKSet(generateRSA()).let {
         JWKSource { jwkSelector: JWKSelector, _ ->
             jwkSelector.select(
-                jwkSet
+                it
             )
         }
     }
 
-    private fun generateRSA(): RSAKey = generateRsaKey().let { keyPair ->
-        RSAKey.Builder(keyPair.public as RSAPublicKey)
-            .privateKey(keyPair.private as RSAPrivateKey)
+    private fun generateRSA(): RSAKey = generateRsaKey().let {
+        RSAKey.Builder(it.public as RSAPublicKey)
+            .privateKey(it.private as RSAPrivateKey)
             .keyID(UUID.randomUUID().toString())
             .build()
     }
@@ -75,4 +76,5 @@ class AuthServerConfig {
         .getInstance(KEY_ALGORITHM)
         .also { it.initialize(KEY_SIZE) }
         .generateKeyPair()
+
 }

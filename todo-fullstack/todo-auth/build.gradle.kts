@@ -22,8 +22,12 @@ extra["springModulithVersion"] = "1.2.4"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-web"){
+        exclude(group = "org.springframework.boot", module = "spring-boot-starter-tomcat")
+    }
+    implementation("org.springframework.boot:spring-boot-starter-undertow")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation ("io.github.oshai:kotlin-logging-jvm:5.1.4")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 

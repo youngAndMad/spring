@@ -1,3 +1,37 @@
 spring:
+  main:
+    banner-mode: off
   application:
     name: todo-auth
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          todo-app:
+            registration:
+              client-id: todo-app
+              client-secret: todo-password
+              client-name: TodoAppClient
+              redirect-uris:
+                - ${oauth2-clients.todo-app.base-url}/login/oauth2/code/articles-client-oidc
+                - ${oauth2-clients.todo-app.base-url}/authorized
+              client-authentication-methods:
+                - client_secret_basic
+              authorization-grant-types:
+                - authorization_code
+                - refresh_token
+            require-authorization-consent: true
+            token:
+              authorization-code-time-to-live: 2m
+
+
+
+oauth2-clients:
+  todo-app:
+    base-url: http://localhost:8080
+
+server:
+  port: 9000
+  error:
+    include-message: always
+    include-stacktrace: on_param
