@@ -26,6 +26,13 @@ dependencies {
         exclude(group = "org.springframework.boot", module = "spring-boot-starter-tomcat")
     }
     implementation("org.springframework.boot:spring-boot-starter-undertow")
+
+    implementation("org.springframework.boot:spring-boot-starter-mail")
+
+    implementation("gg.jte:jte:3.1.12")
+    implementation("gg.jte:jte-spring-boot-starter-3:3.1.12")
+
+
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation ("io.github.oshai:kotlin-logging-jvm:5.1.4")
 
@@ -36,6 +43,7 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-authorization-server")
+    implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
