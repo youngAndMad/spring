@@ -1,0 +1,29 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${SMTP_USERNAME}
+    password: ${SMTP_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  application:
+    name: todo-backend
+
+gg:
+  jte:
+    templateLocation: src/main/resources/templates
+    templateSuffix: .kte
+    developmentMode: true
+
+
+server:
+  error:
+    include-message: always
+    include-stacktrace: on_param
+logging:
+  level:
+    org.springframework.web: debug

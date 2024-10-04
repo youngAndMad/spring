@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "start:proxy": "ng serve --proxy-config=proxy.json",
     "serve:ssr:todo-client": "node dist/todo-client/server/server.mjs"
   },
   "private": true,

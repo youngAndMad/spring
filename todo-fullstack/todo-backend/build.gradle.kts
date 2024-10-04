@@ -21,13 +21,20 @@ repositories {
 dependencies {
     // kotlin dependencies
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation ("io.github.oshai:kotlin-logging-jvm:5.1.4")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     // ------------------------------------------------------------
 
     // spring dependencies
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-mail")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+    // ------------------------------------------------------------
+
+    // java template engine dependencies
+    implementation("gg.jte:jte:3.1.12")
+    implementation("gg.jte:jte-spring-boot-starter-3:3.1.12")
     // ------------------------------------------------------------
 
     // test dependencies
