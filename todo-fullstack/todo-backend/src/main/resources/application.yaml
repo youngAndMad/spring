@@ -13,13 +13,6 @@ spring:
   application:
     name: todo-backend
 
-gg:
-  jte:
-    templateLocation: src/main/resources/templates
-    templateSuffix: .kte
-    developmentMode: true
-
-
 server:
   error:
     include-message: always

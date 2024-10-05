@@ -1,11 +1,11 @@
 package kz.danekerscode.todo.features.mail
 
-import gg.jte.TemplateEngine
-import gg.jte.output.StringOutput
 import io.github.oshai.kotlinlogging.KotlinLogging
 import org.springframework.mail.javamail.JavaMailSender
 import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.stereotype.Service
+import org.thymeleaf.TemplateEngine
+import org.thymeleaf.context.Context
 import java.nio.charset.StandardCharsets
 
 @Service
@@ -16,13 +16,16 @@ class MailService(
     val log = KotlinLogging.logger { }
 
     fun sendMail(
-        data: SendMailMessage
+        mailData: SendMailMessage
     ) {
-        val htmlContent = StringOutput()
-        templateEngine.render(data.type.templateName, data.data, htmlContent)
+
+        val context = Context()
+        context.setVariable("receiver", mailData.receiver)
+        mailData.data.forEach { context.setVariable(it.key, it.value) }
+
+        val htmlContent = templateEngine.process(mailData.type.templateName, context)
 
         val msg = mailSender.createMimeMessage()
-
         val helper =
             MimeMessageHelper(
                 msg,
@@ -30,13 +33,12 @@ class MailService(
                 StandardCharsets.UTF_8.name(),
             )
 
-        helper.setText(htmlContent.toString(), true)
-        helper.setTo(data.receiver)
-        helper.setSubject(data.type.subject)
+        helper.setText(htmlContent, true)
+        helper.setTo(mailData.receiver)
+        helper.setSubject(mailData.type.subject)
 
-        mailSender.send(msg)
+        // mailSender.send(msg)
 
-        log.info { "Mail sent to ${data.receiver}" }
+        log.info { "Mail sent to ${mailData.receiver}" }
     }
-
 }

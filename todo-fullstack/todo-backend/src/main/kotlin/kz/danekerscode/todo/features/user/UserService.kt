@@ -10,5 +10,5 @@ class UserService(
 
     fun existsByEmail(email: String): Boolean = userRepository.existsByEmail(email)
 
-
+    fun save(user: User): User = userRepository.save(user)
 }

@@ -29,13 +29,11 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-mail")
+    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     // ------------------------------------------------------------
 
-    // java template engine dependencies
-    implementation("gg.jte:jte:3.1.12")
-    implementation("gg.jte:jte-spring-boot-starter-3:3.1.12")
-    // ------------------------------------------------------------
 
     // test dependencies
     testImplementation("org.springframework.boot:spring-boot-starter-test")

@@ -4,5 +4,5 @@ enum class MailMessageType(
     var templateName: String,
     var subject: String,
 ) {
-    EMAIL_CONFIRMATION("mail/email_confirmation.kte", "Email Confirmation"),
+    EMAIL_CONFIRMATION("email_confirmation.html", "Email Confirmation");
 }

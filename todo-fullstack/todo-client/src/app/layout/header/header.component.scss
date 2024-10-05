@@ -1,0 +1,30 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_inner {
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+  .link_wrapper {
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); // Shadow on hover
+    }
+
+    .nav_link {
+      font-size: 18px;
+    }
+  }
+}
+
+.right-nav {
+  display: flex;
+  gap: 20px;
+}
