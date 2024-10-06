@@ -29,6 +29,7 @@
     <module>jooq</module>
     <module>async-http-responses</module>
     <module>spring-boot-http-client-starter</module>
+      <module>debezium-data-encryption</module>
   </modules>
 
   <dependencies>

@@ -7,11 +7,12 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { PasswordModule } from 'primeng/password';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, PasswordModule, ReactiveFormsModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
 })
@@ -24,6 +25,11 @@ export class SignUpComponent {
   ) {
     this.signUpForm = this.fb.group({
       email: [null, [Validators.email, Validators.required]],
+      password: [null, [Validators.required]],
     });
+  }
+
+  handleLoginAttempt() {
+    console.log('login attempt');
   }
 }

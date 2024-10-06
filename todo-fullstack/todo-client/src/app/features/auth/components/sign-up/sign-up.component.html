@@ -1,5 +1,5 @@
 <div class="login_form">
-  <form [formGroup]="signUpForm">
+  <form [formGroup]="signUpForm" (submit)="handleLoginAttempt()">
     <h3>Log in with</h3>
 
     <div class="login_option">
@@ -28,7 +28,7 @@
         type="email"
         id="email"
         placeholder="Enter email address"
-        required
+        formControlName="email"
       />
     </div>
 
@@ -38,11 +38,11 @@
         <a href="#">Forgot Password?</a>
       </div>
 
-      <input
-        type="password"
+      <p-password
         id="password"
         placeholder="Enter your password"
-        required
+        formControlName="password"
+        [toggleMask]="true"
       />
     </div>
 
