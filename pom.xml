@@ -30,6 +30,7 @@
         <module>async-http-responses</module>
         <module>spring-boot-http-client-starter</module>
         <module>debezium-data-encryption</module>
+        <module>hibernate</module>
     </modules>
 
     <dependencies>
